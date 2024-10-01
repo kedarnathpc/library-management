@@ -10,15 +10,14 @@ import (
 	"github.com/gorilla/schema"
 	"github.com/gorilla/sessions"
 	"github.com/jmoiron/sqlx"
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
 
 	dbURL := os.Getenv("DB_URL")
 	port := os.Getenv("PORT")

@@ -9,7 +9,6 @@ import (
 
 	validation "github.com/go-ozzo/ozzo-validation"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type Category struct {
@@ -88,10 +87,10 @@ func (h *Handler) storeCategories(rw http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) listCategories(rw http.ResponseWriter, r *http.Request) {
-	if err := godotenv.Load(); err != nil {
-		http.Error(rw, "Error loading .env file", http.StatusInternalServerError)
-		return
-	}
+	// if err := godotenv.Load(); err != nil {
+	// 	http.Error(rw, "Error loading .env file", http.StatusInternalServerError)
+	// 	return
+	// }
 	port := os.Getenv("PORT")
 	page := r.URL.Query().Get("page")
 	var p int = 1

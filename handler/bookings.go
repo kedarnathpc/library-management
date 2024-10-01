@@ -10,7 +10,6 @@ import (
 
 	validation "github.com/go-ozzo/ozzo-validation"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type Bookings struct {
@@ -128,10 +127,10 @@ func (h *Handler) loadCreateBookingForm(rw http.ResponseWriter, id int, booking 
 
 func (h *Handler) myBookings(rw http.ResponseWriter, r *http.Request) {
 	// Load .env file to get the PORT value
-	if err := godotenv.Load(); err != nil {
-		http.Error(rw, "Error loading .env file", http.StatusInternalServerError)
-		return
-	}
+	// if err := godotenv.Load(); err != nil {
+	// 	http.Error(rw, "Error loading .env file", http.StatusInternalServerError)
+	// 	return
+	// }
 	port := os.Getenv("PORT")
 
 	page := r.URL.Query().Get("page")
